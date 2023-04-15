@@ -1,14 +1,15 @@
+import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-import {Redirect} from 'react-router-dom'
-
 import Header from '../Header'
+
 import './index.css'
 
 const Cart = () => {
-  const jwtToken = Cookies.get('jwt_token')
-  if (jwtToken === undefined) {
-    return <Redirect to="/Login" />
+  const accessToken = Cookies.get('jwt_token')
+
+  if (accessToken === undefined) {
+    return <Redirect to="/login" />
   }
 
   return (
